@@ -1,0 +1,45 @@
+
+.wppb-posts-addon-pagination{
+    position: relative;
+}
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    animation: spinner .6s linear infinite;
+}
+.wppb-posts-paginate-link{
+    display: inline-block;
+}
+/*
+     FILE ARCHIVED ON 16:58:12 Jul 25, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:58:18 Jul 25, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 182.629
+  exclusion.robots: 0.128
+  exclusion.robots.policy: 0.113
+  cdx.remote: 0.084
+  esindex: 0.014
+  LoadShardBlock: 147.017 (3)
+  PetaboxLoader3.resolve: 80.001 (2)
+  PetaboxLoader3.datanode: 64.15 (3)
+  load_resource: 10.621
+*/

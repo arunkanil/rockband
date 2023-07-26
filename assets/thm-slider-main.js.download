@@ -1,0 +1,106 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+
+jQuery(document).ready(function($) {
+    'use strict';
+
+
+    $('.wppb-carousel').each(function(index, $value){
+        let $slider = $(this);
+
+        let settings = JSON.parse($slider.attr('data-settings'));
+        let isDots = ( parseInt(settings.control_option) === 1);
+        let isArrow = ( parseInt(settings.arrow_option) === 1);
+        let animated_speed = settings.animated_speed;
+        let isAutoPlay = ( parseInt(settings.autoplay_option) === 1);
+
+        let slickOptions = {
+            autoplay: false,
+            speed: 600,
+            lazyLoad: 'progressive',
+            nextArrow: '<span class="wppb-carousel-next"><i class="fas fa-angle-right"></i></span>',
+            prevArrow: '<span class="wppb-carousel-prev"><i class="fas fa-angle-left"></i></span>'
+            //dots: true,
+        };
+        slickOptions.dots = isDots;
+        slickOptions.arrows = isArrow;
+        slickOptions.speed = animated_speed;
+        slickOptions.autoplay = isAutoPlay;
+
+        if ($slider.hasClass('slick-initialized')) {
+            $slider.slick('unslick');
+        }
+        $slider.not('.slick-initialized').slick(slickOptions).slickAnimation();
+    });
+
+    $(document).on('rendered_addon', function (e, addon) {
+        let iframe = window.frames['wppb-builder-view'].window.document;
+
+        if (typeof addon.type !== 'undefined' && addon.type === 'addon' && ( addon.name === 'wppb_carousel')) {
+            let $sliderWrap = $(iframe).find('.wppb-carousel');
+
+            $sliderWrap.each(function(index, $value){
+                let $slider = $(this);
+                let addonID = parseInt($slider.attr('data-addon-id'));
+
+                if (addonID === parseInt(addon.id) ) {
+                    let settings = addon.settings;
+                    let isDots = ( parseInt(settings.control_option) === 1);
+                    let isArrow = ( parseInt(settings.arrow_option) === 1);
+                    let animated_speed = settings.animated_speed;
+                    let isAutoPlay = ( parseInt(settings.autoplay_option) === 1);
+
+                    let slickOptions = {
+                        autoplay: false,
+                        speed: 600,
+                        lazyLoad: 'progressive',
+                        nextArrow: '<span class="wppb-carousel-prev"><i class="fas fa-angle-left"></i></span>',
+                        prevArrow: '<span class="wppb-carousel-next"><i class="fas fa-angle-right"></i></span>'
+                        //dots: true,
+                    };
+                    slickOptions.dots = isDots;
+                    slickOptions.arrows = isArrow;
+                    slickOptions.speed = animated_speed;
+                    slickOptions.autoplay = isAutoPlay;
+
+                    if ($slider.hasClass('slick-initialized')) {
+                        $slider.slick('unslick');
+                    }
+                    $slider.not('.slick-initialized').slick(slickOptions).slickAnimation();
+                }
+            });
+        }
+    });
+
+});
+
+}
+/*
+     FILE ARCHIVED ON 15:46:06 Jul 26, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:56:27 Jul 26, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 146.884
+  exclusion.robots: 0.096
+  exclusion.robots.policy: 0.082
+  cdx.remote: 0.1
+  esindex: 0.012
+  LoadShardBlock: 104.984 (3)
+  PetaboxLoader3.datanode: 95.815 (3)
+  load_resource: 23.885
+*/
